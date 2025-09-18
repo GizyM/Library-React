@@ -1,7 +1,7 @@
 import Nav from "./components/Nav";
 import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import { books } from "./data";
@@ -48,15 +48,16 @@ function App() {
     <Router>
       <div className="App">
         <Nav numberOfItems={numberOfItems()} />
-        <Route path="/" exact component={Home} />
-        <Route path="/books" exact render={() => <Books books={books} />} />
+        <Routes>
+        <Route path="/" element={Home} />
+        <Route path="/books" element={() => <Books books={books} />} />
         <Route
           path="/books/:id"
-          render={() => <BookInfo books={books} addToCart={addToCart} cart={cart} />}
+          element={() => <BookInfo books={books} addToCart={addToCart} cart={cart} />}
         />
         <Route
           path="/cart"
-          render={() => (
+          element={() => (
             <Cart
               books={books}
               cart={cart}
@@ -66,6 +67,7 @@ function App() {
           )}
         />
         <Footer />
+        </Routes>
       </div>
     </Router>
   );
