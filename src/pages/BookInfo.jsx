@@ -32,11 +32,11 @@ const BookInfo = ({ books, addToCart, cart }) => {
             </div>
             <div className="book__selected">
               <figure className="book__selected--figure">
-                <img src="{book.url}" alt="" className="book__selected--img" />
+                <img src={book.url} alt="" className="book__selected--img" />
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">{book.title}</h2>
-                <Rating rating="{book.rating}" />
+                <Rating rating={book.rating} />
                 <div className="book__selected--price">
                   <Price
                     originalPrice={book.originalPrice}
