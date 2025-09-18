@@ -50,14 +50,14 @@ function App() {
         <Nav numberOfItems={numberOfItems()} />
         <Routes>
         <Route path="/" element={Home} />
-        <Route path="/books" element={() => <Books books={books} />} />
+        <Route path="/books" element={<Books books={books} />} />
         <Route
           path="/books/:id"
-          element={() => <BookInfo books={books} addToCart={addToCart} cart={cart} />}
+          element={<BookInfo books={books} addToCart={addToCart} cart={cart} />}
         />
         <Route
           path="/cart"
-          element={() => (
+          element={ (
             <Cart
               books={books}
               cart={cart}
@@ -66,8 +66,8 @@ function App() {
             />
           )}
         />
-        <Footer />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
